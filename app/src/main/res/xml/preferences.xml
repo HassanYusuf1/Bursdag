@@ -1,0 +1,29 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="SMS Innstillinger"
+        android:summary="Administrer innstillinger for SMS-tjenesten">
+
+        <SwitchPreference
+            android:key="sms_service_enabled"
+            android:title="Aktiver SMS-tjeneste"
+            android:summary="Slå av eller på for å sende bursdags-SMS."
+            android:defaultValue="false" />
+
+        <EditTextPreference
+            android:key="sms_send_time"
+            android:title="Tidspunkt for SMS-sending"
+            android:summary="Sett tidspunktet for når SMS skal sendes. Format: HH:mm"
+            android:defaultValue="06:00"
+            android:dialogTitle="Velg tidspunkt" />
+
+        <EditTextPreference
+            android:key="sms_default_message"
+            android:title="Standard SMS-melding"
+            android:summary="Meldingen som sendes til venner med bursdag."
+            android:defaultValue="Gratulerer med dagen! Du er best."
+            android:dialogTitle="Skriv inn standardmelding" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

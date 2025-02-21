@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.s374221_mappe2"
+        tools:targetApi="31">
+
+        <activity
+            android:name="com.example.s374221_mappe2.MainActivity"
+            android:exported="true"
+            android:label="Bursdagsliste">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.s374221_mappe2.NyVenn"
+            android:label="Legg til ny venn">
+        </activity>
+        <activity
+            android:name="com.example.s374221_mappe2.VennerActivity"
+            android:label="Venneliste">
+        </activity>
+        <activity
+            android:name="com.example.s374221_mappe2.SettingsActivity"
+            android:label="Innstillinger">
+        </activity>
+
+        <service android:name="com.example.s374221_mappe2.MinPeriodiskService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service android:name="com.example.s374221_mappe2.MinSendService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <receiver android:name="com.example.s374221_mappe2.MinBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="MissingConstraints">
+
+    <TextView
+        android:id="@+id/overskriftVenn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Legg til ny venn"
+        android:layout_marginTop="42dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="16dp" />
+
+    <EditText
+        android:id="@+id/navnEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:padding="10dp"
+        android:hint="Navn" />
+
+    <TextView
+        android:id="@+id/feilmeldingEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000" />
+
+    <EditText
+        android:id="@+id/foedselsdatoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fødselsdato (dd-mm-yyyy)" />
+
+    <TextView
+        android:id="@+id/feilmeldingfods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000" />
+
+
+    <EditText
+        android:id="@+id/telefonnummerEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Telefonnummer" />
+
+    <Button
+        android:id="@+id/nyVennKnapp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="#2196F3"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:text="Ny venn" />
+</LinearLayout>
