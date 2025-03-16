@@ -187,12 +187,10 @@ com.example.s374221_mappe2/
 - **Bildestøtte:** Legge til mulighet for å lagre profilbilder for venner.
 - **Gruppeorganisering:** Mulighet for å organisere venner i grupper.
 
-## Lisens
 
-Dette prosjektet er lisensiert under MIT-lisensen.
 
 ---
 
 <div align="center">
-  <p>Utviklet av s374221</p>
+  <p>Utviklet av Hassan Yusuf</p>
 </div>
