@@ -325,9 +325,7 @@ com.example.s374221_mappe2/
   </table>
 </div>
 
-## 📝 Lisens
 
-Dette prosjektet er lisensiert under MIT-lisensen.
 
 ---
 
