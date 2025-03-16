@@ -1,196 +1,339 @@
-# Bursdagsliste
+# 📱 Bursdagsliste
 
-**Bursdagsliste** er en Android-applikasjon som hjelper deg med å holde oversikt over venners bursdager. Ved hjelp av en lokal database (Room) og asynkrone operasjoner med RxJava, administrerer appen bursdagsdata og sender automatiserte SMS-bursdagshilsener.
+<div align="center">
+  <h3>Aldri glem en bursdag igjen!</h3>
+  <p><i>En Android-app for å administrere bursdager og sende automatiske SMS-hilsener</i></p>
+  
+  <hr>
+  
+  <div>
+    <a href="#introduksjon">Introduksjon</a> •
+    <a href="#hovedfunksjoner">Hovedfunksjoner</a> •
+    <a href="#teknologier-og-verktøy">Teknologier</a> •
+    <a href="#installasjon-og-oppsett">Installasjon</a> •
+    <a href="#brukerveiledning">Brukerveiledning</a> •
+    <a href="#sms-tjenester">SMS-tjenester</a> •
+    <a href="#prosjektstruktur">Struktur</a>
+  </div>
+</div>
 
-## Innholdsfortegnelse
-- [Introduksjon](#introduksjon)
-- [Hovedfunksjoner](#hovedfunksjoner)
-- [Teknologier og verktøy](#teknologier-og-verktøy)
-- [Installasjon og oppsett](#installasjon-og-oppsett)
-- [Brukerveiledning](#brukerveiledning)
-- [SMS-tjenester](#sms-tjenester)
-- [Prosjektstruktur](#prosjektstruktur)
-- [Fremtidige forbedringer](#fremtidige-forbedringer)
-- [Lisens](#lisens)
+<hr>
 
-## Introduksjon
+## 📖 Introduksjon
 
-**Bursdagsliste** er en Android-applikasjon som gir deg full kontroll over venners bursdager. Med et brukervennlig grensesnitt kan du enkelt legge til, redigere og slette bursdagsoppføringer. Appen sørger for at ingen bursdag går ubemerket hen ved å sende automatiserte SMS-hilsener til dine venner på deres spesielle dag.
+**Bursdagsliste** er en brukervennlig Android-applikasjon som hjelper deg med å holde styr på viktige bursdager. 
+
+Med Bursdagsliste kan du:
+- Registrere alle dine venners bursdagsdata på ett sted
+- Få automatiske påminnelser på bursdager
+- Sende personlige bursdagshilsener via SMS automatisk på riktig dag
+- Enkelt administrere din kontaktliste
 
 <div align="center">
   <table>
     <tr>
-      <td align="center">Hovedskjerm</td>
-      <td align="center">Legg til venn</td>
-      <td align="center">Innstillinger</td>
+      <td align="center"><img src="screenshots/hovedskjerm.png" alt="Hovedskjerm" width="200"/></td>
+      <td align="center"><img src="screenshots/legg_til_venn.png" alt="Legg til venn" width="200"/></td>
+      <td align="center"><img src="screenshots/innstillinger.png" alt="Innstillinger" width="200"/></td>
+    </tr>
+    <tr>
+      <td align="center"><b>Hovedskjerm</b></td>
+      <td align="center"><b>Legg til venn</b></td>
+      <td align="center"><b>Innstillinger</b></td>
     </tr>
   </table>
 </div>
 
-## Hovedfunksjoner
-
-- **Databasehåndtering:**  
-  Oppretter og administrerer en lokal Room-database for effektiv lagring av bursdagsdata.
-  
-- **Venneliste:**  
-  Viser en oversikt over alle registrerte venner i `VennerListFragment`. Data hentes via `VennerDao` for rask tilgang.
-  
-- **Legge til ny venn:**  
-  Lar deg registrere nye venner med navn, fødselsdato og telefonnummer gjennom skjermen "Ny venn".
-  
-- **Redigere og slette oppføringer:**  
-  Trykk på en venn i listen for å redigere detaljer eller slette oppføringen.
-  
-- **Automatisert SMS-sending:**  
-  Appen sender automatisk bursdagshilsener via SMS ved hjelp av tjenestene `MinBroadcastReceiver`, `MinPeriodiskService` og `MinSendService`.
-  
-- **Varslingssystem:**  
-  Bekreftende notifikasjoner vises etter at en SMS er sendt, med informasjon om hvem som har mottatt meldingen.
-  
-- **Innstillinger:**  
-  Konfigurer SMS-sendingstidspunkt, meldingsinnhold og aktivering/deaktivering av SMS-tjenesten.
-
-## Teknologier og verktøy
+## ✨ Hovedfunksjoner
 
 <div align="center">
   <table>
     <tr>
-      <td align="center">Android</td>
-      <td align="center">Java</td>
-      <td align="center">Room</td>
-      <td align="center">RxJava</td>
-      <td align="center">Gradle</td>
+      <th width="300">Funksjon</th>
+      <th width="500">Beskrivelse</th>
+    </tr>
+    <tr>
+      <td><b>📋 Venneliste</b></td>
+      <td>Oversiktlig visning av alle venner, med navn, telefonnummer og fødselsdato</td>
+    </tr>
+    <tr>
+      <td><b>➕ Legge til venner</b></td>
+      <td>Intuitivt grensesnitt for å legge til nye venner med all nødvendig informasjon</td>
+    </tr>
+    <tr>
+      <td><b>✏️ Redigering</b></td>
+      <td>Mulighet for å redigere og oppdatere eksisterende kontaktinformasjon</td>
+    </tr>
+    <tr>
+      <td><b>🔔 Automatiske SMS</b></td>
+      <td>Automatisk sending av bursdagshilsener via SMS på den store dagen</td>
+    </tr>
+    <tr>
+      <td><b>⚙️ Tilpassbare innstillinger</b></td>
+      <td>Tilpass meldingsinnhold og tidspunkt for når SMS skal sendes</td>
+    </tr>
+    <tr>
+      <td><b>🗑️ Enkel sletting</b></td>
+      <td>Fjern kontakter fra listen med et enkelt trykk</td>
     </tr>
   </table>
 </div>
+
+## 🛠️ Teknologier og verktøy
+
+<div align="center">
+  <table>
+    <tr>
+      <td align="center"><b>Android</b></td>
+      <td align="center"><b>Java</b></td>
+      <td align="center"><b>Room</b></td>
+      <td align="center"><b>RxJava</b></td>
+      <td align="center"><b>Gradle</b></td>
+    </tr>
+    <tr>
+      <td align="center">Framework</td>
+      <td align="center">Hovedspråk</td>
+      <td align="center">Database</td>
+      <td align="center">Asynkron</td>
+      <td align="center">Byggesystem</td>
+    </tr>
+  </table>
+</div>
+
+### Tekniske detaljer
 
 - **Android:**  
-  Utviklet som en Android-applikasjon med støtte for Android 9.0 (API nivå 28) og nyere.
+  Målrettet mot Android API 28+ (Android 9.0 Pie og nyere)
   
 - **Java:**  
-  Hovedspråket for appens forretningslogikk og brukergrensesnitt.
+  Brukt for all app-logikk og brukergrensesnitt-implementasjon
   
-- **Room:**  
-  Room Persistence Library brukes for database-håndtering, med støtte for SQLite-databaser.
+- **Room Persistence Library:**  
+  SQLite-abstraksjonsbibliotek for robust databasehåndtering
   
 - **RxJava/RxAndroid:**  
-  Reaktiv programmering for å håndtere asynkrone operasjoner og database-interaksjoner.
+  Reaktive utvidelser for effektiv håndtering av asynkrone operasjoner
   
-- **Android Studio & Gradle:**  
-  Brukes som utviklingsmiljø og byggesystem (med Kotlin DSL i `build.gradle.kts`).
+- **AlarmManager:**  
+  Brukt for å planlegge presise alarmer for SMS-sending
+  
+- **NotificationManager:**  
+  Implementert for å vise brukernotifikasjoner etter vellykket SMS-sending
 
-## Installasjon og oppsett
+## 📲 Installasjon og oppsett
 
 ### Forutsetninger
 - Android Studio (nyeste versjon anbefales)
-- Android SDK (minimum API-nivå: 28, Android 9.0)
+- Android SDK (minimum API-nivå: 28, Android 9.0 Pie)
 - Git for å klone repository
 
-### Steg-for-steg
+### Installasjonsprosess
 
-1. **Klon prosjektet:**
-   ```bash
-   git clone https://github.com/brukernavn/Bursdagsliste.git
-   ```
+<div align="center">
+  <table>
+    <tr>
+      <th>Steg</th>
+      <th>Kommando / Handling</th>
+    </tr>
+    <tr>
+      <td>1. Klon repository</td>
+      <td><code>git clone https://github.com/brukernavn/Bursdagsliste.git</code></td>
+    </tr>
+    <tr>
+      <td>2. Åpne i Android Studio</td>
+      <td>File → Open → [velg prosjektmappe]</td>
+    </tr>
+    <tr>
+      <td>3. Synkroniser Gradle</td>
+      <td>Klikk på 'Sync Now' når forespurt</td>
+    </tr>
+    <tr>
+      <td>4. Bygg appen</td>
+      <td>Build → Make Project (Ctrl+F9)</td>
+    </tr>
+    <tr>
+      <td>5. Kjør på enhet/emulator</td>
+      <td>Run → Run 'app' (Shift+F10)</td>
+    </tr>
+  </table>
+</div>
 
-2. **Åpne prosjektet i Android Studio:**
-   - Start Android Studio
-   - Velg "Open an existing Android Studio project"
-   - Naviger til mappen hvor du klonet prosjektet og velg den
+### Nødvendige tillatelser
 
-3. **Synkroniser Gradle-filer:**
-   - Android Studio vil automatisk synkronisere Gradle-filene
-   - Hvis ikke, klikk på "Sync Project with Gradle Files"-knappen i verktøylinjen
+Appen krever følgende tillatelser for å fungere korrekt:
 
-4. **Legg til nødvendige tillatelser:**
-   - Appen trenger SMS-tillatelser for å fungere
-   - Sørg for at enheten/emulatoren har gitt disse tillatelsene (SEND_SMS)
+```xml
+<uses-permission android:name="android.permission.SEND_SMS" />
+<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+```
 
-5. **Bygg og kjør prosjektet:**
-   - Koble til en Android-enhet eller start en emulator
-   - Klikk på "Run" (▶) i Android Studio
+## 👨‍💻 Brukerveiledning
 
-## Brukerveiledning
+### Navigasjon i appen
 
-### Første oppstart
-Ved første oppstart vil appen be om nødvendige tillatelser for SMS-sending. Godkjenn disse for full funksjonalitet.
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="250"><b>Hovedskjerm</b></td>
+      <td>Viser en liste over alle registrerte venner</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Legg til venn</b></td>
+      <td>Tilgjengelig via menyen øverst til høyre</td>
+    </tr>
+    <tr>
+      <td align="center"><b>Innstillinger</b></td>
+      <td>Tilgjengelig via menyen øverst til høyre</td>
+    </tr>
+  </table>
+</div>
 
 ### Legge til en ny venn
-1. Trykk på "Legg til venn" i menyen øverst til høyre
-2. Fyll ut navn, fødselsdato (dd-mm-yyyy) og telefonnummer
-3. Trykk på "Ny venn" for å lagre informasjonen
 
-### Redigere en eksisterende oppføring
-1. Trykk på ønsket venn i vennelisten
-2. Velg "Endre" i dialogen som vises
-3. Endre informasjonen i redigeringsskjermen
-4. Trykk på "Ny venn" for å lagre endringene
+1. Fra hovedskjermen, trykk på **Legg til venn** i menyen øverst til høyre
+2. Fyll ut følgende informasjon:
+   - **Navn**: Vennens fulle navn
+   - **Fødselsdato**: I formatet DD-MM-YYYY (f.eks. 15-06-1990)
+   - **Telefonnummer**: Vennens mobilnummer
+3. Trykk på **Ny venn**-knappen
+4. Du vil se en bekreftelsesmelding og vennen blir lagt til i hovedlisten
 
-### Slette en venn
-1. Trykk på vennen du ønsker å slette
-2. Velg "Slett" i dialogen som vises
-3. Vennen blir umiddelbart fjernet fra databasen
+### Redigere eller slette en venn
 
-### Konfigurere SMS-innstillinger
-1. Gå til "Innstillinger" fra hovedmenyen
-2. Aktiver "Aktiver SMS-tjeneste" for å slå på automatisk SMS-sending
-3. Still inn ønsket tidspunkt for SMS-sending i "Tidspunkt for SMS-sending"
-4. Tilpass standard SMS-melding i "Standard SMS-melding"
+1. Fra hovedskjermen, trykk på vennen du ønsker å endre
+2. En dialogboks vises med tre alternativer:
+   - **Endre**: Åpner NyVenn-skjermen med forhåndsutfylte felt
+   - **Slett**: Fjerner vennen fra databasen umiddelbart
+   - **Avbryt**: Lukker dialogen uten endringer
+3. Hvis du velger **Endre**, gjør endringene og trykk på **Ny venn**-knappen
 
-## SMS-tjenester
+### Innstillinger for SMS-sending
 
-### Automatisk sending
-Appen kjører en bakgrunnstjeneste som sjekker dagens bursdager og sender SMS-meldinger automatisk. Dette håndteres av følgende komponenter:
+1. Fra hovedskjermen, velg **Innstillinger** fra menyen øverst til høyre
+2. På innstillingsskjermen kan du:
+   - **Aktivere/deaktivere SMS-tjenesten**: Slå automatisk SMS-sending på eller av
+   - **Velge tidspunkt for SMS-sending**: Angi når på dagen bursdagsmeldinger skal sendes (f.eks. 08:00)
+   - **Tilpasse standard meldingstekst**: Endre standard bursdagshilsen
 
-- **MinBroadcastReceiver:**  
-  Aktiveres ved systemoppstart og starter den periodiske tjenesten.
-  
-- **MinPeriodiskService:**  
-  Kjører periodiske sjekker for å identifisere dagens bursdager. Setter opp en daglig alarm for SMS-sending basert på brukerens tidspreferanser.
-  
-- **MinSendService:**  
-  Håndterer den faktiske SMS-sendingen når alarmen utløses. Henter alle venner som har bursdag på gjeldende dato og sender dem en melding.
+## 📱 SMS-tjenester
 
-### Varslinger
-Etter at en SMS er sendt, vil appen vise en notifikasjon med:
-- Navn på mottaker(e)
-- Telefonnummer til mottaker(e)
-- Bekreftelse på at meldingen ble sendt
+Appen bruker en sofistikert arkitektur for å håndtere SMS-sending på riktig dag og tidspunkt.
 
-## Prosjektstruktur
+### Systemflyt for SMS-sending
+
+<div align="center">
+  <table>
+    <tr>
+      <th>Komponent</th>
+      <th>Funksjon</th>
+    </tr>
+    <tr>
+      <td><b>MinBroadcastReceiver</b></td>
+      <td>Starter ved enhetsoppstart og initialiserer den periodiske tjenesten</td>
+    </tr>
+    <tr>
+      <td><b>MinPeriodiskService</b></td>
+      <td>Setter opp daglig alarm basert på brukerinnstilt tidspunkt</td>
+    </tr>
+    <tr>
+      <td><b>MinSendService</b></td>
+      <td>Utløses av alarmen, identifiserer bursdager og sender SMS</td>
+    </tr>
+  </table>
+</div>
+
+### SMS-prosess i detalj
+
+1. **Oppstart**: `MinBroadcastReceiver` mottar en BOOT_COMPLETED-broadcast ved enhetsoppstart
+2. **Planlegging**: `MinPeriodiskService` leser innstillinger og setter en nøyaktig alarm for angitt tidspunkt
+3. **Utløsning**: `MinSendService` aktiveres når alarmen utløses
+4. **Databasesjekk**: Tjenesten sjekker databasen for venner med bursdag på gjeldende dato
+5. **Sending**: SMS sendes til alle med bursdag på dagen
+6. **Notifikasjon**: En brukernotifikasjon vises som bekrefter vellykkede sendinger
+
+## 📂 Prosjektstruktur
 
 ```
 com.example.s374221_mappe2/
-├── daos/
-│   └── VennerDao.java          # Data Access Object for venner-tabellen
-├── enteties/
-│   └── Venner.java             # Entitetsklasse for venn-objekter
-├── AppDatabase.java            # Room-databasekonfigurasjon
-├── MainActivity.java           # Hovedaktivitet
-├── MinBroadcastReceiver.java   # Håndterer systemoppstart
-├── MinPeriodiskService.java    # Periodisk tjeneste for å sjekke bursdager
-├── MinSendService.java         # Tjeneste for SMS-sending
-├── NyVenn.java                 # Aktivitet for å legge til/redigere venner
-├── SettingsActivity.java       # Innstillingsaktivitet
-├── SettingsFragment.java       # Fragment for innstillinger
-├── VennerActivity.java         # Aktivitet for vennelisten
-└── VennerListFragment.java     # Fragment for visning av venner
+│
+├── activities/                        # Aktivitetsklasser
+│   ├── MainActivity.java              # Hovedaktivitet
+│   ├── NyVenn.java                    # Legge til/redigere venn
+│   ├── SettingsActivity.java          # Innstillinger
+│   └── VennerActivity.java            # Venneliste
+│
+├── fragments/                         # Fragmenter
+│   ├── SettingsFragment.java          # Innstillingsfragment
+│   └── VennerListFragment.java        # Venneliste-fragment
+│
+├── database/                          # Databasekomponenter
+│   ├── AppDatabase.java               # Room-database
+│   ├── daos/
+│   │   └── VennerDao.java             # Data Access Object
+│   └── enteties/
+│       └── Venner.java                # Venner-entitet
+│
+├── services/                          # Bakgrunnstjenester
+│   ├── MinBroadcastReceiver.java      # Boot receiver
+│   ├── MinPeriodiskService.java       # Alarm-tjeneste
+│   └── MinSendService.java            # SMS-tjeneste
+│
+└── res/                               # Ressursfiler
+    ├── layout/                        # Layoutfiler
+    │   ├── activity_main.xml          # Hovedlayout
+    │   ├── nyvenn.xml                 # Legg til venn-layout
+    │   └── venner_list.xml            # Vennelisteformat
+    ├── menu/                          # Menyfiler
+    ├── values/                        # Verdier
+    └── xml/                           # XML-konfigurasjon
+        └── preferences.xml            # Innstillinger
 ```
 
-## Fremtidige forbedringer
+## 🔮 Fremtidige forbedringer
 
-- **Flerspråklig støtte:** Implementere støtte for flere språk.
-- **Tema-alternativer:** Legge til lyst og mørkt tema.
-- **Backup og synkronisering:** Mulighet for å sikkerhetskopiere data til skyen.
-- **Påminnelser:** Legge til påminnelser før selve bursdagen.
-- **Forbedret dato-validering:** Implementere bedre validering av datoformater.
-- **Bildestøtte:** Legge til mulighet for å lagre profilbilder for venner.
-- **Gruppeorganisering:** Mulighet for å organisere venner i grupper.
+<div align="center">
+  <table>
+    <tr>
+      <th>Funksjon</th>
+      <th>Beskrivelse</th>
+    </tr>
+    <tr>
+      <td><b>🌐 Flerspråklig støtte</b></td>
+      <td>Støtte for flere språk gjennom ressurslokalisering</td>
+    </tr>
+    <tr>
+      <td><b>🌙 Mørkt tema</b></td>
+      <td>Implementere et mørkt tema for bedre brukeropplevelse</td>
+    </tr>
+    <tr>
+      <td><b>☁️ Cloud backup</b></td>
+      <td>Sync og backup av data til skytjenester</td>
+    </tr>
+    <tr>
+      <td><b>🖼️ Bildestøtte</b></td>
+      <td>Mulighet for å legge til profilbilder for kontakter</td>
+    </tr>
+    <tr>
+      <td><b>👥 Gruppering</b></td>
+      <td>Kategorisere venner i grupper for enklere administrasjon</td>
+    </tr>
+    <tr>
+      <td><b>📊 Statistikk</b></td>
+      <td>Visning av bursdagsstatistikk og kommende bursdager</td>
+    </tr>
+  </table>
+</div>
 
+## 📝 Lisens
 
+Dette prosjektet er lisensiert under MIT-lisensen.
 
 ---
 
 <div align="center">
-  <p>Utviklet av Hassan Yusuf</p>
+  <p>
+    <b>Bursdagsliste</b> er utviklet av Hassan
+  </p>
+  
 </div>
